@@ -1,0 +1,24 @@
+┌──────────────────────┐
+│     Multisig DAO     │  ← 提案角色（Proposer）
+└─────────┬────────────┘
+          │
+          ▼
+┌──────────────────────┐
+│  TimelockController  │
+│                      │
+│  ⏳ 延迟执行操作         │
+│  🧩 授权 AccessControl  │
+└─────────┬────────────┘
+          │
+          ▼
+┌──────────────────────────────┐
+│  RoleBasedSupplyChain 合约   │
+│                              │
+│  AccessControl 权限如下：     │
+│    - PRODUCER_ROLE           │
+│    - COLLECTOR_ROLE          │
+│    - CUSTOMS_ROLE            │
+│    - RETAIL_ROLE             │
+│                              │
+│  Timelock 是唯一 ADMIN_ROLE  │
+└──────────────────────────────┘

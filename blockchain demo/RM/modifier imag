@@ -1,0 +1,35 @@
+        ┌───────────────────────┐
+        │   Uninitialized       │
+        └───────────┬───────────┘
+                    │
+             produce()
+          atStage(Uninitialized)
+                    │
+                    ▼
+        ┌───────────────────────┐
+        │       Produced         │
+        └───────────┬───────────┘
+                    │
+              collect()
+           atStage(Produced)
+                    │
+                    ▼
+        ┌───────────────────────┐
+        │      Collected         │
+        └───────────┬───────────┘
+                    │
+         declareCustoms()
+          atStage(Collected)
+                    │
+                    ▼
+        ┌───────────────────────┐
+        │       Declared         │
+        └───────────┬───────────┘
+                    │
+               retail()
+          atStage(Declared)
+                    │
+                    ▼
+        ┌───────────────────────┐
+        │     RetailReady        │
+        └───────────────────────┘
