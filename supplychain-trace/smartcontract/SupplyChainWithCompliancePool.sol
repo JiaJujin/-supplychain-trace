@@ -63,10 +63,7 @@ contract SupplyChainWithPool is AccessControl {
     function declareCustoms(bytes32 productId) external onlyRole(CUSTOMS_ROLE) atStep(productId, Stage.Collected) {}
 
     function retail(bytes32 productId) external onlyRole(RETAIL_ROLE) atStep(productId, Stage.Declared) {
-        // 零售结束 → 通知合规池释放押金
-        Product storage p = products[productId];
-        compliancePool.completeCompliance(productId);
-    }
+        }
 
     function getStage(bytes32 productId) external view returns (Stage) {
         return products[productId].currentStage;
